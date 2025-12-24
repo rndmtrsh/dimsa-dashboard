@@ -1,8 +1,8 @@
 {
-  "buildCommand": "cd interface && npm install && npm run build",
+  "buildCommand": " npm install && npm run build",
   "outputDirectory": "interface/dist",
-  "installCommand": "cd interface && npm install",
+  "installCommand": " npm install",
   "framework": null,
-  "devCommand": "cd interface && npm run dev"
+  "devCommand": " npm run dev"
     
 }
