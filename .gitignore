@@ -1,3 +1,7 @@
 /API-call
 *.drawio
 *.xlsx
+interface/dist
+interface/node_modules
+interface/.env
+interface/.vite
