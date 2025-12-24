@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Solar Panel Info Display</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- HEADER (sama style) -->
+        <header class="header">
+            <div class="logo">
+                <span>PV</span>
+            </div>
+            <div class="title-block">
+                <h1>Informasi Lingkungan & Inverter</h1>
+                <p>Media Edukasi Sistem Solar Panel</p>
+            </div>
+        </header>
+
+        <main class="content page2-content">
+
+            <!-- BARIS ATAS: 3 BOX -->
+            <section class="row row-top-page2">
+                <!-- BOX 1: Iradiasi + Suhu PV -->
+                <section class="panel panel-small panel-irradiance">
+                    <h2 class="panel-title">Kondisi Panel Surya</h2>
+                    <div class="inner-column">
+                        <article class="card card-kpi compact">
+                            <h3>Iradiasi</h3>
+                            <p class="value-medium" id="irradiance">850 <span class="unit">W/m²</span></p>
+                        </article>
+
+                        <article class="card card-kpi compact">
+                            <h3>Suhu Panel (PV)</h3>
+                            <p class="value-medium" id="pv-temp">42 <span class="unit">°C</span></p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- BOX 2: Kelembapan + Suhu Udara -->
+                <section class="panel panel-small panel-weather">
+                    <h2 class="panel-title">Kondisi Lingkungan</h2>
+                    <div class="inner-column">
+                        <article class="card card-kpi compact">
+                            <h3>Kelembapan</h3>
+                            <p class="value-medium" id="humidity">65 <span class="unit">%</span></p>
+                        </article>
+
+                        <article class="card card-kpi compact">
+                            <h3>Suhu Udara</h3>
+                            <p class="value-medium" id="air-temp">30 <span class="unit">°C</span></p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- BOX 3: Informasi teks lebar -->
+                <section class="panel panel-wide-info">
+                    <h2 class="panel-title">Apa Itu Pembangkit Listrik Tenaga Surya?</h2>
+                    <div class="info-box">
+                        <p>
+                            Pembangkit Listrik Tenaga Surya (PLTS) mengubah energi cahaya matahari 
+                            menjadi energi listrik. Panel surya menangkap cahaya, inverter 
+                            mengubah listrik DC menjadi AC, lalu energi ini bisa digunakan 
+                            untuk beban listrik di sekolah atau disalurkan ke jaringan listrik.
+                        </p>
+                        <p>
+                            Nilai iradiasi, suhu panel, kelembapan, dan suhu udara membantu 
+                            kita memahami seberapa baik sistem bekerja pada kondisi lingkungan saat ini.
+                        </p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- BARIS BAWAH: 1 BOX LEBAR INVERTER 3 FASA -->
+            <section class="panel panel-inverter">
+                <h2 class="panel-title">Informasi Inverter 3 Fasa</h2>
+
+                <div class="phase-grid">
+                    <!-- PHASE A -->
+                    <article class="card phase-card">
+                        <div class="phase-header">
+                            <span class="phase-title">Phase A</span>
+                            <span class="phase-separator">:</span>
+                            <span class="phase-power" id="inv-pa">
+                                1.65 <span class="unit">kW</span>
+                            </span>
+                        </div>
+                        <div class="phase-inner-grid">
+                            <div class="inner-metric-box">
+                                <p class="inner-label">Voltage</p>
+                                <p class="inner-value" id="inv-va">
+                                    230 <span class="unit">V</span>
+                                </p>
+                            </div>
+                            <div class="inner-metric-box">
+                                <p class="inner-label">Current</p>
+                                <p class="inner-value" id="inv-ia">
+                                    8.2 <span class="unit">A</span>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PHASE B -->
+                    <article class="card phase-card">
+                        <div class="phase-header">
+                            <span class="phase-title">Phase B</span>
+                            <span class="phase-separator">:</span>
+                            <span class="phase-power" id="inv-pa">
+                                1.65 <span class="unit">kW</span>
+                            </span>
+                        </div>
+                        <div class="phase-inner-grid">
+                            <div class="inner-metric-box">
+                                <p class="inner-label">Voltage</p>
+                                <p class="inner-value" id="inv-vb">
+                                    231 <span class="unit">V</span>
+                                </p>
+                            </div>
+                            <div class="inner-metric-box">
+                                <p class="inner-label">Current</p>
+                                <p class="inner-value" id="inv-ib">
+                                    7.9 <span class="unit">A</span>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PHASE C -->
+                    <article class="card phase-card">
+                        <div class="phase-header">
+                            <span class="phase-title">Phase C</span>
+                            <span class="phase-separator">:</span>
+                            <span class="phase-power" id="inv-pa">
+                                1.65 <span class="unit">kW</span>
+                            </span>
+                        </div>
+                        <div class="phase-inner-grid">
+                            <div class="inner-metric-box">
+                                <p class="inner-label">Voltage</p>
+                                <p class="inner-value" id="inv-vc">
+                                    228 <span class="unit">V</span>
+                                </p>
+                            </div>
+                            <div class="inner-metric-box">
+                                <p class="inner-label">Current</p>
+                                <p class="inner-value" id="inv-ic">
+                                    8.5 <span class="unit">A</span>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>
+                MA Darul Ihsan &mdash; Sistem PLTS On Grid
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

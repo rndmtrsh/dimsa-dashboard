@@ -1,0 +1,811 @@
+:root {
+    --bg: #F1FFFA; /* mint clean background */
+    --bg-panel: #FFFFFF; /* card/surface */
+    --bg-card: #FFFFFF; /* card/surface */
+    --border: #CFF7EC; /* mint border */
+    --primary: #0EA5E9; /* sky */
+    --secondary: #14B8A6; /* teal */
+    --accent: #A3E635; /* lime accent */
+    --text-main: #0B1220; /* utama */
+    --text-sub: #6B7280; /* sekunder, gunakan dari palet sebelumnya */
+    --status-success: #14B8A6;
+    --status-warning: #F59E0B;
+    --status-error: #F43F5E;
+    --shadow-main: 0 2px 16px 0 rgba(14,165,233,0.08); /* sky shadow */
+    --shadow-card: 0 1.5px 8px 0 rgba(163,230,53,0.07); /* lime shadow for cards */
+    --shadow-box: 0 1px 4px 0 rgba(11,18,32,0.06); /* for inner boxes */
+    
+    /* Animation variables */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* RESET */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color var(--transition-normal), 
+                border-color var(--transition-normal),
+                transform var(--transition-normal),
+                box-shadow var(--transition-normal),
+                opacity var(--transition-normal);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+}
+
+/* WRAPPER UTAMA */
+.dashboard {
+    min-height: 100vh;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 22px;
+    border-radius: 20px;
+    background-color: var(--bg-panel);
+    border: 1.5px solid var(--border);
+    box-shadow: 0 4px 18px 0 rgba(14,165,233,0.10);
+    margin-bottom: 24px;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    width: 68px;
+    height: 68px;
+    border-radius: 999px;
+    border: 3px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.10), transparent 60%);
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(163, 230, 53, 0);
+    }
+}
+
+.title-block h1 {
+    font-size: clamp(1.8rem, 2.8vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+}
+
+.title-block p {
+    margin-top: 6px;
+    font-size: 1rem;
+    color: var(--text-sub);
+}
+
+/* KONTEN UTAMA */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi transisi variatif untuk page */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: perspective(400px) rotateX(10deg);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(400px) rotateX(0deg);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi untuk cards dengan stagger */
+.animate-card-1 {
+    animation: slideInFromLeft 0.5s ease-out 0.1s both;
+}
+
+.animate-card-2 {
+    animation: slideInFromRight 0.5s ease-out 0.2s both;
+}
+
+.animate-card-3 {
+    animation: scaleIn 0.5s ease-out 0.3s both;
+}
+
+.animate-card-4 {
+    animation: fadeInDown 0.5s ease-out 0.4s both;
+}
+
+.animate-text {
+    animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+.animate-text-delay {
+    animation: fadeInDown 0.6s ease-out 0.3s both;
+}
+
+/* BARIS ATAS & BAWAH */
+.row {
+    display: grid;
+    gap: 18px;
+}
+
+/* Top row: kiri lebih panjang dari kanan */
+.row-top {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+}
+
+/* Bottom row: kiri lebih pendek dari kanan, gap proporsional */
+.row-bottom {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.5fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+
+/* PANEL UMUM */
+.panel {
+    background-color: var(--bg-panel);
+    border-radius: 20px;
+    padding: 18px 18px 20px;
+    border: 1.5px solid var(--border);
+    box-shadow: 0 4px 18px 0 rgba(14,165,233,0.10), 0 1.5px 8px 0 rgba(163,230,53,0.08);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.panel:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px 0 rgba(14,165,233,0.15), 0 4px 12px 0 rgba(163,230,53,0.12);
+}
+
+.panel-title {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-sub);
+    margin-bottom: 12px;
+}
+
+/* Panel atas kiri */
+.panel-top-left {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Panel atas kanan (Yield) */
+.panel-top-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Panel bawah: sedikit lebih kecil dari panel atas tanpa di-scale */
+.panel-bottom-left,
+.panel-bottom-right {
+    padding: 12px 14px 14px;
+    border-radius: 18px;
+}
+
+
+/* BOX & CARD DI DALAM PANEL */
+.inner-box {
+    border-radius: 18px;
+    padding: 14px 16px 16px;
+    background-color: var(--bg-card);
+    border: 1.2px solid var(--border);
+    box-shadow: 0 2px 8px 0 rgba(11,18,32,0.08);
+}
+
+.inner-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    margin-bottom: 6px;
+}
+
+/* Nilai utama besar (Total Active Power, Yield Today) */
+.value-main {
+    font-size: clamp(2.4rem, 3.4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    color: var(--primary);
+    animation: slideInRight 0.6s ease-out;
+    display: inline-block;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Nilai besar (PV AC, Grid AC) */
+.value-large {
+    font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+/* Nilai sedang (frequency, PF, DC) – diperkecil untuk panel bawah */
+.value-medium {
+    font-size: clamp(1.3rem, 1.7vw, 1.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+/* Tambahan: khusus panel bawah, sedikit lebih kecil lagi */
+.panel-bottom-left .value-medium,
+.panel-bottom-right .value-medium {
+    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+}
+
+/* unit */
+.unit {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 4px;
+    color: var(--accent);
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+/* Baris dalam panel (card berjajar) */
+.inner-row {
+    display: grid;
+    gap: 12px;
+}
+
+.inner-row.two-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.inner-row.three-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* CARD UMUM */
+.card {
+    border-radius: 16px;
+    padding: 12px 14px 14px;
+    background-color: var(--bg-card);
+    border: 1.5px solid var(--border);
+    box-shadow: 0 4px 18px 0 rgba(14,165,233,0.10), 0 1.5px 8px 0 rgba(163,230,53,0.08);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.card:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 24px 0 rgba(14,165,233,0.15), 0 3px 12px 0 rgba(163,230,53,0.12);
+    border-color: var(--primary);
+}
+
+.card-kpi h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    margin-bottom: 4px;
+}
+
+/* Versi lebih kompak untuk card di panel bawah */
+.card-kpi.compact {
+    padding: 8px 10px 10px;
+}
+
+.panel-bottom-left .card-kpi.compact h3,
+.panel-bottom-right .card-kpi.compact h3 {
+    font-size: 0.8rem;
+}
+
+/* YIELD BOX (kanan atas) */
+.yield-box {
+    border-radius: 20px;
+    padding: 20px 20px 22px;
+    background-color: var(--bg-card);
+    border: 1.5px solid var(--border);
+    box-shadow: 0 4px 18px 0 rgba(14,165,233,0.10), 0 1.5px 8px 0 rgba(163,230,53,0.08);
+}
+
+/* FOOTER */
+.footer {
+    padding: 10px 4px 0;
+    border-top: 1.5px solid var(--border);
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-sub);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .row-top {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    }
+    .row-bottom {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+    
+    .dashboard {
+        padding: 20px 16px;
+    }
+    
+    .panel {
+        padding: 16px;
+    }
+    
+    .header {
+        padding: 14px 18px;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .row-top,
+    .row-bottom {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .inner-row.two-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .inner-row.three-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 16px;
+    }
+    
+    .dashboard {
+        padding: 16px 12px;
+    }
+    
+    .panel {
+        padding: 14px;
+        border-radius: 16px;
+    }
+    
+    .card {
+        padding: 10px 12px;
+    }
+    
+    .logo {
+        width: 56px;
+        height: 56px;
+        font-size: 1rem;
+    }
+    
+    .panel-title {
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+    }
+    
+    .content {
+        gap: 14px;
+    }
+    
+    .row {
+        gap: 14px;
+    }
+}
+
+/* ============================
+   LAYOUT HALAMAN 2
+   ============================ */
+
+/* Konten halaman 2 tetap menggunakan content utama, hanya layout yang beda */
+.page2-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Baris atas: 3 kolom
+   - kiri dan tengah kecil
+   - kanan lebih lebar untuk teks informatif */
+.row-top-page2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 2fr);
+    gap: 18px;
+}
+
+/* Baris bawah: satu panel lebar */
+.row-bottom-page2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 4px;
+}
+
+/* Panel kecil atas (irradiance / weather) */
+.panel-small {
+    padding: 14px 14px 16px;
+    border-radius: 18px;
+}
+
+.panel-small .panel-title {
+    font-size: 0.9rem;
+    letter-spacing: 0.16em;
+}
+
+/* Kolom vertikal di dalam panel kecil */
+.inner-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Box teks informatif yang lebar */
+.panel-wide-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-wide-info .info-box {
+    margin-top: 6px;
+    border-radius: 16px;
+    padding: 14px 16px 16px;
+    background-color: var(--bg-card);
+    border: 1.5px solid var(--border);
+    box-shadow: 0 4px 18px 0 rgba(14,165,233,0.10), 0 1.5px 8px 0 rgba(163,230,53,0.08);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-main);
+}
+
+.panel-wide-info .info-box p + p {
+    margin-top: 8px;
+}
+
+/* Panel Inverter 3 Fasa di bawah */
+.panel-inverter-3phase {
+    padding: 16px 18px 18px;
+}
+
+/* Grid 3 fasa: A, B, C sejajar */
+.phase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 10px;
+}
+
+/* Card untuk tiap fasa */
+.card-phase {
+    border-radius: 16px;
+    padding: 12px 14px 14px;
+    background-color: var(--bg-card);
+    border: 1.5px solid var(--border);
+    box-shadow: 0 4px 18px 0 rgba(14,165,233,0.10), 0 1.5px 8px 0 rgba(163,230,53,0.08);
+}
+
+.card-phase h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Baris metrik dalam card fasa:
+   Tegangan, Arus, Daya per fasa */
+.phase-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.phase-label {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+}
+
+.phase-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 4px;
+}
+
+/* Panel inverter bawah */
+.panel-inverter {
+    padding: 16px 18px 18px;
+}
+
+/* Card tiap phase */
+.phase-card {
+    padding: 14px 14px 16px;
+}
+
+/* Header phase: "Phase A : 1.65 kW" */
+.phase-header {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.phase-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.phase-separator {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.phase-power {
+    font-size: 1.45rem;
+    font-weight: 700;
+}
+
+/* Grid dalam card untuk Voltage & Current */
+.phase-inner-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+/* Box kecil di dalam untuk arus & tegangan */
+.inner-metric-box {
+    border-radius: 12px;
+    padding: 8px 10px 10px;
+    background-color: var(--bg-panel);
+    border: 1.2px solid var(--border);
+    box-shadow: 0 2px 8px 0 rgba(11,18,32,0.08);
+}
+
+/* STATUS COLORS */
+.status-success {
+    color: var(--status-success) !important;
+}
+.status-warning {
+    color: var(--status-warning) !important;
+}
+.status-error {
+    color: var(--status-error) !important;
+}
+
+.inner-label {
+    font-size: 0.8rem;
+    color: var(--text-sub);
+    margin-bottom: 4px;
+}
+
+.inner-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* RESPONSIVE UNTUK HALAMAN 2 */
+@media (max-width: 900px) {
+    .row-top-page2 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .phase-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .phase-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ===== HALAMAN GRAFIK HISTORIS ===== */
+
+.row-history {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+}
+
+/* Panel khusus grafik */
+.panel-chart {
+    padding: 16px 18px 20px;
+}
+
+.chart-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    margin-bottom: 10px;
+}
+
+/* Wrapper untuk menjaga rasio grafik */
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 360px;
+}
+
+/* Pastikan canvas mengikuti ukuran wrapper */
+.chart-wrapper canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Responsif untuk layar lebih kecil */
+@media (max-width: 900px) {
+    .chart-wrapper {
+        height: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+    .chart-wrapper {
+        height: 260px;
+    }
+}

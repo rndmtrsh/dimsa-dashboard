@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Solar Panel Monitoring Display</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo">
+                <!-- Ganti dengan <img src="logo.png" alt="Logo PLTS"> bila sudah ada -->
+                <span>PV</span>
+            </div>
+            <div class="title-block">
+                <h1>PLTS Monitoring Dashboard</h1>
+                <p>Media Edukasi Sistem Solar Panel</p>
+            </div>
+        </header>
+
+        <!-- KONTEN -->
+        <main class="content">
+
+            <!-- BARIS ATAS: 2 BOX LUAR -->
+            <section class="row row-top">
+                <!-- BOX KIRI: DAYA + PV AC + GRID AC -->
+                <section class="panel panel-top-left">
+                    <h2 class="panel-title" style="font-size: 1.8rem;">Daya Sistem AC</h2>
+                    <!-- Inner: Total Active Power -->
+                    <div class="inner-box main-power-box">
+                        <h3 class="inner-title">Total Active Power</h3>
+                        <p class="value-main" id="total-active-power">3.5 <span class="unit">kW</span></p>
+                        <p class="subtitle">Total daya aktif keluaran inverter</p>
+                    </div>
+
+                    <!-- Inner: PV Power AC dan Grid Power AC -->
+                    <div class="inner-row two-cards">
+                        <article class="card card-kpi">
+                            <h3>PV Power AC</h3>
+                            <p class="value-large" id="pv-power-ac">4.2 <span class="unit">kW</span></p>
+                            <p class="subtitle">Daya AC dari panel surya</p>
+                        </article>
+
+                        <article class="card card-kpi">
+                            <h3>Grid Power AC</h3>
+                            <p class="value-large" id="grid-power-ac">0.2 <span class="unit">kW</span></p>
+                            <p class="subtitle">Daya dari PLN</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- BOX KANAN: YIELD TODAY -->
+                <section class="panel panel-top-right">
+                    <h2 class="panel-title">Energi dari Matahari</h2>
+                    <div class="yield-box" style="margin-bottom: 10pt;">
+                        <h3 class="inner-title">Yield Today</h3>
+                        <p class="value-main" id="yield-today">12.4 <span class="unit">kWh</span></p>
+                        <p class="subtitle">
+                            Total energi yang dihasilkan sistem hari ini
+                        </p>
+                    </div>
+                    <div class="yield-box">
+                        <h3 class="inner-title">Yield This Month</h3>
+                        <p class="value-main" id="yield-today">148.2 <span class="unit">kWh</span></p>
+                        <p class="subtitle">
+                            Total energi yang dihasilkan sistem bulan ini
+                        </p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- BARIS BAWAH: 2 BOX LUAR LEBIH KECIL -->
+            <section class="row row-bottom">
+                <!-- BOX KIRI: FREQUENCY & POWER FACTOR -->
+                <section class="panel panel-bottom-left">
+                    <h2 class="panel-title">Kualitas Daya</h2>
+                    <div class="inner-row two-cards">
+                        <article class="card card-kpi compact">
+                            <h3>Frequency</h3>
+                            <p class="value-medium" id="frequency">50.0 <span class="unit">Hz</span></p>
+                        </article>
+
+                        <article class="card card-kpi compact">
+                            <h3>Power Factor</h3>
+                            <p class="value-medium" id="power-factor">0.98</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- BOX KANAN: TEGANGAN, ARUS, DAYA DC -->
+                <section class="panel panel-bottom-right">
+                    <h2 class="panel-title">Parameter DC Panel Surya</h2>
+                    <div class="inner-row three-cards">
+                        <article class="card card-kpi compact">
+                            <h3>DC Voltage</h3>
+                            <p class="value-medium" id="dc-voltage">620 <span class="unit">V</span></p>
+                            <p class="subtitle">Tegangan total string PV</p>
+                        </article>
+
+                        <article class="card card-kpi compact">
+                            <h3>DC Current</h3>
+                            <p class="value-medium" id="dc-current">6.8 <span class="unit">A</span></p>
+                            <p class="subtitle">Arus dari panel surya</p>
+                        </article>
+
+                        <article class="card card-kpi compact">
+                            <h3>DC Power</h3>
+                            <p class="value-medium" id="dc-power">4.2 <span class="unit">kW</span></p>
+                            <p class="subtitle">Daya DC sebelum inverter</p>
+                        </article>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>
+                MA Darul Ihsan &mdash; Sistem PLTS On Grid
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
