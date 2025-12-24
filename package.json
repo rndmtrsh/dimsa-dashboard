@@ -1,0 +1,7 @@
+{
+  "name": "dimsa-root",
+  "private": true,
+  "scripts": {
+    "build": "cd interface && npm install && npm run build"
+  }
+}
